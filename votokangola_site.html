@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTOKANGOLA | Associação para o Desenvolvimento do Capital Humano e Proteção Social</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --dark-blue: #0d47a1;
+            --light-blue: #64b5f6;
+            --accent-orange: #ff6f00;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --success: #4caf50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--accent-orange);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.3);
+        }
+
+        .cta-button::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.9), rgba(30, 136, 229, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 111, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark-blue);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 4rem 2rem;
+            position: relative;
+            top: -50px;
+            margin: 0 5%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-orange);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--accent-orange);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 111, 0, 0.3);
+        }
+
+        .experience-badge h4 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pilares Section */
+        .pilares {
+            background: var(--bg-light);
+            padding: 6rem 2rem;
+        }
+
+        .pilares-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pilar-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pilar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pilar-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pilar-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .pilar-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .pilar-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--bg-light), #e3f2fd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .team-info p {
+            color: var(--accent-orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .team-social a:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: var(--bg-light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .partners-logos {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+            max-width: 300px;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .partner-logo i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .partner-logo h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-logo p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .contact-item div h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item div p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(13, 71, 161, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 4rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: var(--accent-orange);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Database Badge */
+        .db-badge {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                margin: 0 2%;
+                top: -30px;
+            }
+
+            .experience-badge {
+                right: 10px;
+                bottom: -10px;
+                padding: 1rem;
+            }
+
+            .experience-badge h4 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="https://i.imgur.com/8QBYRrm.png" alt="VOTOKANGOLA Logo">
+                <div class="logo-text">
+                    <h1>VOTOKANGOLA</h1>
+                    <span>Desenvolvimento do Capital Humano</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#equipa">Equipa</a></li>
+                <li><a href="#parceiros">Parceiros</a></li>
+                <li><a href="#contacto" class="cta-button">Contacte-nos</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>Conectando Sonhos, Protegendo Futuros</h2>
+            <p>Associação para o Desenvolvimento do Capital Humano e Proteção Social em Angola. Utilizamos inovação em microseguros para proteger as famílias angolanas contra choques financeiros, climáticos e de saúde.</p>
+            <div class="hero-buttons">
+                <a href="#sobre" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Conheça a Nossa Missão
+                </a>
+                <a href="#contacto" class="btn-secondary">Torne-se Parceiro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats">
+        <div class="stat-item">
+            <h3>2026</h3>
+            <p>Ano de Fundação</p>
+        </div>
+        <div class="stat-item">
+            <h3>9</h3>
+            <p>Membros Fundadores</p>
+        </div>
+        <div class="stat-item">
+            <h3>3</h3>
+            <p>Órgãos Sociais</p>
+        </div>
+        <div class="stat-item">
+            <h3>4</h3>
+            <p>Pilares de Actuação</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section" id="sobre">
+        <div class="section-title fade-in">
+            <h2>Sobre a VOTOKANGOLA</h2>
+            <p>Somos uma organização não governamental, de âmbito nacional, sem fins lucrativos, dedicada ao combate à pobreza e às desigualdades em Angola.</p>
+        </div>
+
+        <div class="about-grid fade-in">
+            <div class="about-content">
+                <h3>Sandbox de Protecção Social</h3>
+                <p>Posicionamo-nos como catalisador de resiliência, funcionando como um laboratório para testar, avaliar e escalar produtos de microseguro e mecanismos de segurança social antes da implementação nacional.</p>
+
+                <h3>Abordagem de Ambientes</h3>
+                <p>Focamos no desenvolvimento do capital humano onde ele ocorre:</p>
+                <ul style="margin-left: 2rem; color: var(--text-light); line-height: 2;">
+                    <li><strong>Na casa:</strong> Seguros de saúde e protecção familiar</li>
+                    <li><strong>No bairro:</strong> Mecanismos de protecção comunitária e resiliência</li>
+                    <li><strong>No trabalho:</strong> Seguros agrícolas, formação profissional e literacia financeira</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>Sede:</strong> Rua Principal, Bairro 4 de Fevereiro, Lobito, Benguela, Angola</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=600&fit=crop" alt="Comunidade Angolana">
+                <div class="experience-badge">
+                    <h4>4 Anos</h4>
+                    <p>Mandato 2026-2030</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilares Section -->
+    <section class="pilares" id="pilares">
+        <div class="section-title fade-in">
+            <h2>Áreas de Intervenção</h2>
+            <p>Quatro pilares fundamentais para o desenvolvimento sustentável de Angola</p>
+        </div>
+
+        <div class="pilares-grid">
+            <div class="pilar-card fade-in">
+                <div class="pilar-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Literacia e Protecção Social</h3>
+                <p>Desenvolvimento de microseguros (saúde, agrícola, vida e propriedade) adaptados às comunidades de baixa renda e facilitação do acesso à segurança social para trabalhadores do sector informal.</p>
+            </div>
+
+            <div class="pilar-card fade-in">
+                <div class="pilar-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Desenvolvimento de Base</h3>
+                <p>Fomento à agricultura familiar sustentável, promoção de técnicas de resiliência climática e estabelecimento de sistemas de alerta precoce para emergências alimentares.</p>
+            </div>
+
+            <div class="pilar-card fade-in">
+                <div class="pilar-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Educação e Empreendedorismo</h3>
+                <p>Programas de literacia financeira adaptados aos contextos locais, formação técnico-profissional orientada para o mercado de trabalho e apoio à economia solidária.</p>
+            </div>
+
+            <div class="pilar-card fade-in">
+                <div class="pilar-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Hub de Assessoria</h3>
+                <p>Prestação de assistência técnica na captação de recursos internacionais, monitoria e avaliação de projectos de desenvolvimento e gestão de financiamentos (Grant Management).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="equipa">
+        <div class="section-title fade-in">
+            <h2>Órgãos Sociais</h2>
+            <p>Conheça a equipa dedicada que lidera a nossa missão</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Mesa da Assembleia Geral -->
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Isaías Osvaldo Madeira Augusto">
+                </div>
+                <div class="team-info">
+                    <h4>Isaías Osvaldo Madeira Augusto</h4>
+                    <p>Presidente da Mesa da AG</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:isaias@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Edilson Nuno Sabonete Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Edilson Nuno Sabonete Madeira</h4>
+                    <p>Vice-Presidente da Mesa da AG</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:edilson@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" alt="Juliana Samba Rufino P. Tsamba">
+                </div>
+                <div class="team-info">
+                    <h4>Juliana Samba Rufino P. Tsamba</h4>
+                    <p>Secretária da Mesa da AG</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:juliana@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direcção -->
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face" alt="Ivandro Francisco Sabonete Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Ivandro Francisco Sabonete Madeira</h4>
+                    <p>Presidente da Direcção</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:ivandro@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face" alt="Rosa Ngueve Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Rosa Ngueve Madeira</h4>
+                    <p>Vice-Presidente da Direcção</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:rosa@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face" alt="Eliseu Madeira Cambissi">
+                </div>
+                <div class="team-info">
+                    <h4>Eliseu Madeira Cambissi</h4>
+                    <p>Vogal da Direcção</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:eliseu@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conselho Fiscal -->
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop&crop=face" alt="Isabel Luísa Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Isabel Luísa Madeira</h4>
+                    <p>Presidente do Conselho Fiscal</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:isabel@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" alt="Eliseu Bruno Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Eliseu Bruno Madeira</h4>
+                    <p>1.º Vogal do Conselho Fiscal</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:eliseu.bruno@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card fade-in">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" alt="Laurinda Ana Madeira">
+                </div>
+                <div class="team-info">
+                    <h4>Laurinda Ana Madeira</h4>
+                    <p>2.º Vogal do Conselho Fiscal</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:laurinda@votokangola.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="parceiros">
+        <div class="section-title fade-in">
+            <h2>Redes e Parceiros Internacionais</h2>
+            <p>Conectados às principais redes globais de microseguros e protecção social</p>
+        </div>
+
+        <div class="partners-logos fade-in">
+            <a href="https://microinsurancenetwork.org/" target="_blank" class="partner-logo">
+                <i class="fas fa-globe-africa"></i>
+                <h4>Microinsurance Network</h4>
+                <p>Rede global de organizações comprometidas com o seguro inclusivo e gestão de riscos para comunidades vulneráveis.</p>
+            </a>
+
+            <a href="https://www.microinsuranceinnovation.com/" target="_blank" class="partner-logo">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Microinsurance Innovation Hub</h4>
+                <p>Plataforma unificada para stakeholders do sector, catalisando inovação e crescimento inclusivo no mercado de microseguros.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-title fade-in">
+            <h2>Contacte-nos</h2>
+            <p>Estamos prontos para colaborar no desenvolvimento do capital humano em Angola</p>
+        </div>
+
+        <div class="contact-container fade-in">
+            <div class="contact-info">
+                <h3>Vamos Conversar</h3>
+                <p>Entre em contacto connosco para saber mais sobre os nossos programas, estabelecer parcerias ou integrar a nossa rede de associados.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Rua Principal, Bairro 4 de Fevereiro<br>Lobito, Benguela, Angola</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>+244 955 644 039</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>geral@votokangola.org</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/company/votokangola</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Assunto da mensagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required placeholder="Escreva a sua mensagem..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VOTOKANGOLA</h4>
+                <p>Associação para o Desenvolvimento do Capital Humano e Proteção Social. Conectando sonhos, protegendo futuros em Angola.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/votokangola" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:geral@votokangola.org"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#pilares">Áreas de Actuação</a></li>
+                    <li><a href="#equipa">Órgãos Sociais</a></li>
+                    <li><a href="#parceiros">Parceiros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Documentos</h4>
+                <ul>
+                    <li><a href="#">Estatutos da Associação</a></li>
+                    <li><a href="#">Relatório Anual 2026</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Código de Conduta</a></li>
+                    <li><a href="#">Declaração de Interesses</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Principal, Bairro 4 de Fevereiro, Lobito</p>
+                <p><i class="fas fa-phone"></i> +244 955 644 039</p>
+                <p><i class="fas fa-envelope"></i> geral@votokangola.org</p>
+                <p><i class="fas fa-globe"></i> www.votokangola.org</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Associação VOTOKANGOLA. Todos os direitos reservados. | NIF: [Em processo de obtenção]</p>
+        </div>
+    </footer>
+
+    <!-- Database Badge -->
+    <div class="db-badge" id="dbStatus">
+        <i class="fas fa-database"></i>
+        <span>Sistema Conectado (Firebase)</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form Submission (simulated - no backend)
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> A enviar...';
+            submitBtn.disabled = true;
+
+            // Simulação de envio (sem backend)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
+                submitBtn.style.background = 'var(--success)';
+                e.target.reset();
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
